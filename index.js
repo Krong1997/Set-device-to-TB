@@ -1,5 +1,6 @@
 const addDevices = require('./modules/addDevice');
 const getDeviceToken = require('./modules/getDeviceToken');
+const fs = require('fs');
 
 async function getTokenList(deviceList) {
   const deviceTokenList = [];
@@ -15,9 +16,12 @@ async function getTokenList(deviceList) {
   return deviceTokenList;
 }
 
-async function init() {
+async function build() {
   const deviceList = await getTokenList(await addDevices());
-  console.log(deviceList);
+  const data = JSON.stringify(deviceList);
+  fs.writeFileSync('./output/deviceList.json', data, (err) => {
+    console.error('Data written to file error', err);
+  });
 }
 
-init();
+build();
