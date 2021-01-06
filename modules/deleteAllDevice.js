@@ -1,5 +1,4 @@
 const proxyToTB = require('./utils/proxyToTB');
-const showLog = require('./showMsgOnLog');
 const {
   host,
   port
@@ -8,7 +7,6 @@ const {
 async function deleteAllDevice() {
   const deviceList = require('../output/deviceList.json');
   if (!Array.isArray(deviceList)) throw new Error('device is not array');
-  showLog('delete all devices...');
   for (let i = 0; i < deviceList.length; i++) {
     try {
       const opt = {
