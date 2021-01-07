@@ -14,8 +14,7 @@ ACCESS_TOKEN=${TB_ACCESS_TOKEN}
 ```
 
 3. Run script
-
-Run add device script. When script finish, you can see `deviceList.json` in `output` folder
+Create `output` folder in root directory. un add device script. When script finish, you can see `deviceList.json` in `output` folder
 ```
 npm run init
 ```
